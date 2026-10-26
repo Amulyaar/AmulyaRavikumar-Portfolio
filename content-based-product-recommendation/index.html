@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta name="description" content="An interactive content-based product recommendation demo and product case study by Amulya Ravikumar.">
+  <title>Discovery Mix Lab — Amulya Ravikumar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="../" aria-label="Back to Amulya Ravikumar portfolio"><span class="brand-mark">a<span>.</span></span><span>AMULYA<br>RAVIKUMAR</span></a>
+    <div class="topbar-meta"><span class="live-dot"></span> PRODUCT PLAYGROUND / 02</div>
+    <a class="top-link" href="https://amulyaar.github.io/AmulyaRavikumar-Portfolio/">Portfolio <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero section-wrap" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">CONTENT-BASED RECOMMENDATION · PRODUCT CASE STUDY</p>
+        <h1>Good discovery<br>has a <em>point of view.</em></h1>
+        <p class="hero-lead">A recommendation system should feel personal without making the world smaller.</p>
+        <p class="hero-note">I built content features for a 10K+ item catalog, compared three recommendation approaches on engagement, and explored reinforcement learning as a next step.</p>
+        <a class="button button-dark" href="#playground">Tune a discovery feed <span aria-hidden="true">↓</span></a>
+      </div>
+      <aside class="hero-result" aria-label="Reported project result">
+        <div class="result-top"><span>PROJECT RESULT</span><span class="result-icon" aria-hidden="true">↗</span></div>
+        <strong>~10%</strong>
+        <p>reported CTR lift over baseline for the best of three tested approaches</p>
+        <div class="result-rule"></div>
+        <small>Reported result from the original project. This demo uses a synthetic catalog and does not reproduce that experiment.</small>
+      </aside>
+      <div class="hero-index" aria-hidden="true"><span>01</span><span>DISCOVER / ITERATE / LEARN</span></div>
+    </section>
+
+    <section class="playground section-wrap" id="playground" aria-labelledby="play-title">
+      <div class="section-heading">
+        <div><p class="eyebrow">INTERACTIVE PLAYGROUND</p><h2 id="play-title">What should this person<br><em>see next?</em></h2></div>
+        <p class="section-aside">Tune the signals. Compare ranking strategies. Save or dismiss items to shape the next pass.</p>
+      </div>
+
+      <div class="lab-shell">
+        <aside class="controls" aria-label="Recommendation controls">
+          <div class="control-head"><span>YOUR DISCOVERY PROFILE</span><span class="catalog-count"><b id="catalog-size">10,000</b> ITEMS</span></div>
+          <h3>Choose a few interests</h3>
+          <p class="control-copy">Your picks shape content similarity. Dismissed items are removed for this session.</p>
+          <div class="interest-list" id="interest-list" aria-label="Choose product interests"></div>
+
+          <div class="range-heading"><label for="relevance">Taste match</label><output id="relevance-value" for="relevance">62</output></div>
+          <input id="relevance" type="range" min="0" max="100" value="62">
+          <div class="range-heading"><label for="freshness">Freshness</label><output id="freshness-value" for="freshness">22</output></div>
+          <input id="freshness" type="range" min="0" max="100" value="22">
+          <div class="range-heading"><label for="variety">Explore beyond your usual</label><output id="variety-value" for="variety">16</output></div>
+          <input id="variety" type="range" min="0" max="100" value="16">
+          <button class="reset-button" id="reset-lab" type="button">Reset the playground <span aria-hidden="true">↺</span></button>
+          <p class="privacy-note"><span aria-hidden="true">◉</span> Demo preferences stay in this page session.</p>
+        </aside>
+
+        <div class="feed-panel">
+          <div class="feed-topline"><div><span class="feed-label">A SMALL WINDOW INTO THE CATALOG</span><h3>Your discovery mix</h3></div><span class="feed-count" id="feed-count">TOP 8 / 10,000</span></div>
+          <div class="strategy-tabs" role="tablist" aria-label="Choose a demo ranking strategy">
+            <button class="strategy-tab is-active" id="tab-match" type="button" role="tab" aria-selected="true" data-strategy="match"><span>01</span> Taste match</button>
+            <button class="strategy-tab" id="tab-fresh" type="button" role="tab" aria-selected="false" data-strategy="fresh"><span>02</span> Fresh picks</button>
+            <button class="strategy-tab" id="tab-balanced" type="button" role="tab" aria-selected="false" data-strategy="balanced"><span>03</span> Open horizons</button>
+          </div>
+          <p class="strategy-note" id="strategy-note" aria-live="polite">Prioritizes shared categories and product attributes.</p>
+          <ul class="product-grid" id="product-grid" aria-live="polite" aria-label="Recommended products"></ul>
+          <div class="feed-foot"><span id="feed-status">10K synthetic catalog · deterministic demo</span><button id="next-set" type="button">Show next 8 <span aria-hidden="true">↗</span></button></div>
+        </div>
+      </div>
+
+      <div class="proxy-strip" aria-live="polite">
+        <div><span>AVERAGE TASTE MATCH</span><strong id="metric-match">—</strong><small>of the shown items</small></div>
+        <div><span>CATEGORY COVERAGE</span><strong id="metric-coverage">—</strong><small>distinct categories in top 8</small></div>
+        <div><span>FRESH INVENTORY</span><strong id="metric-freshness">—</strong><small>relative freshness score</small></div>
+        <p>These are computed demo proxies over generated catalog data, not CTR, user research, or experiment results.</p>
+      </div>
+    </section>
+
+    <section class="story section-wrap" aria-labelledby="story-title">
+      <div class="story-heading"><p class="eyebrow">THE PRODUCT THINKING</p><h2 id="story-title">Personal relevance is<br>only half the <em>job.</em></h2></div>
+      <div class="story-grid">
+        <article class="story-card"><span class="story-number">01 / CONTEXT</span><h3>Too many choices<br>feel like no choice.</h3><p>With a 10K+ item catalog, broad popularity can bury niche but relevant products. The opportunity was to use the item itself—its category, attributes, and descriptive content—as a useful discovery signal.</p><div class="story-foot">PROBLEM → DISCOVERY OVERLOAD</div></article>
+        <article class="story-card story-card-dark"><span class="story-number">02 / APPROACH</span><h3>Build features that<br>explain the match.</h3><p>I represented products through content features and evaluated three recommendation approaches against engagement. The strongest reported variant improved CTR by about 10% over baseline.</p><div class="story-foot">INPUT → CONTENT · OUTPUT → RELEVANCE</div></article>
+        <article class="story-card"><span class="story-number">03 / NEXT QUESTION</span><h3>Can the system learn<br>without narrowing?</h3><p>A follow-on reinforcement learning direction could adapt to changing intent. It would need delayed satisfaction and diversity guardrails so repeated clicks do not become the only reward.</p><div class="story-foot">EXTENSION → LONG-TERM VALUE</div></article>
+      </div>
+    </section>
+
+    <section class="experiment section-wrap" aria-labelledby="experiment-title">
+      <div class="experiment-main"><p class="eyebrow">EXPERIMENTATION & MEASUREMENT</p><h2 id="experiment-title">A click is a signal.<br>It isn’t the <em>whole story.</em></h2><p>The original project compared three approaches using engagement metrics. The reported result is a relative CTR lift for the best variant; the demo below is a separate, synthetic illustration.</p><div class="reported-metric"><strong>+~10%</strong><span>reported CTR vs. baseline<br><small>best of 3 approaches · original project</small></span></div></div>
+      <div class="experiment-side"><span class="side-label">WHAT I’D CARRY INTO THE NEXT TEST</span><ol><li><b>01</b><span>Keep candidate eligibility consistent across variants.</span></li><li><b>02</b><span>Define the attribution window and primary engagement metric before launch.</span></li><li><b>03</b><span>Track repeat exposure, hides, and category coverage as quality guardrails.</span></li><li><b>04</b><span>Check whether gains hold for new users and long-tail items.</span></li></ol></div>
+    </section>
+
+    <section class="next-step section-wrap" aria-labelledby="next-title">
+      <div class="next-mark" aria-hidden="true">↗</div>
+      <div><p class="eyebrow">A CAREFUL EXTENSION</p><h2 id="next-title">Where reinforcement learning could fit.</h2><p>Use interaction sequences to adapt ranking over time, but optimize for a balanced reward: meaningful engagement, satisfaction signals, and discovery breadth. This is a proposed extension, not a completed RL system.</p></div>
+      <div class="reward-loop" aria-label="Proposed reinforcement learning loop"><span>CONTEXT</span><b>→</b><span>RANK</span><b>→</b><span>OUTCOME</span><b>→</b><span>UPDATE</span></div>
+    </section>
+
+    <footer class="footer section-wrap"><a class="brand" href="../"><span class="brand-mark">a<span>.</span></span><span>AMULYA<br>RAVIKUMAR</span></a><p>Product thinking for better discovery.<br><span>Built as an offline, browser-based playground.</span></p><a class="back-link" href="https://amulyaar.github.io/AmulyaRavikumar-Portfolio/">Back to portfolio ↑</a></footer>
+    <p class="disclosure section-wrap">The catalog and interaction outcomes in the playground are synthetic. The ~10% CTR improvement is included as a result reported for the original personal project; the original event logs and variant definitions were not provided for this demo, so the figure is not reproduced here. No TikTok data or ranking system is used.</p>
+  </main>
+</body>
+</html>
