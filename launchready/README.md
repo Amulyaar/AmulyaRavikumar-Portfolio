@@ -2,7 +2,7 @@
 
 **From first playtest to confident launch** — an independent Roblox creator-focused product management case study and working web prototype by Amulya Ravikumar.
 
-**[Read the case study](CASE_STUDY.md) · [Open the prototype](dist/index.html) · [View the four-slide deck](deck/LaunchReady_4_slide_case_study.pptx)**
+**[Read the case study](CASE_STUDY.md) · [View prototype files](dist/) · [View the four-slide deck](deck/LaunchReady_4_slide_case_study.pptx)**
 
 ![LaunchReady overview](screenshots/overview-desktop.jpg)
 
