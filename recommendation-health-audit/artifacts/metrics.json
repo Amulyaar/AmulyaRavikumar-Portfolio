@@ -1,0 +1,133 @@
+{
+  "sample": {
+    "recommendation_rows": 1023019,
+    "recommendation_sets": 102311,
+    "clicked_recommendations": 1642,
+    "overall_ctr": 0.0016051,
+    "date_counts": {
+      "2016-09-18": 338086,
+      "2016-09-19": 2944,
+      "2016-09-27": 9543,
+      "2016-09-28": 331378,
+      "2016-10-07": 271547,
+      "2016-10-08": 2880,
+      "2016-10-09": 2840,
+      "2016-10-10": 2800,
+      "2016-10-11": 61001
+    },
+    "set_size_row_counts": {
+      "5": 5,
+      "9": 585,
+      "10": 1022429
+    },
+    "sets_with_multiple_logged_clicks": 58
+  },
+  "position_comparison": {
+    "rank_1_exposures": 102309,
+    "rank_1_clicks": 371,
+    "rank_1_ctr": 0.0036263,
+    "ranks_2_to_10_exposures": 920710,
+    "ranks_2_to_10_clicks": 1271,
+    "ranks_2_to_10_ctr": 0.0013805,
+    "rank_1_ctr_ratio_vs_ranks_2_to_10": 2.627,
+    "rank_1_share_of_clicks": 0.225944,
+    "rank_1_share_of_exposures": 0.100007
+  },
+  "algorithm_class_counts": {
+    "NULL": 1023019
+  },
+  "by_rank": {
+    "1": {
+      "exposures": 102309,
+      "clicks": 371,
+      "ctr": 0.0036263,
+      "click_share": 0.225944,
+      "exposure_share": 0.100007
+    },
+    "2": {
+      "exposures": 102309,
+      "clicks": 185,
+      "ctr": 0.0018082,
+      "click_share": 0.112667,
+      "exposure_share": 0.100007
+    },
+    "3": {
+      "exposures": 102309,
+      "clicks": 152,
+      "ctr": 0.0014857,
+      "click_share": 0.09257,
+      "exposure_share": 0.100007
+    },
+    "4": {
+      "exposures": 102310,
+      "clicks": 147,
+      "ctr": 0.0014368,
+      "click_share": 0.089525,
+      "exposure_share": 0.100008
+    },
+    "5": {
+      "exposures": 102309,
+      "clicks": 161,
+      "ctr": 0.0015737,
+      "click_share": 0.098051,
+      "exposure_share": 0.100007
+    },
+    "6": {
+      "exposures": 102308,
+      "clicks": 122,
+      "ctr": 0.0011925,
+      "click_share": 0.0743,
+      "exposure_share": 0.100006
+    },
+    "7": {
+      "exposures": 102308,
+      "clicks": 116,
+      "ctr": 0.0011338,
+      "click_share": 0.070646,
+      "exposure_share": 0.100006
+    },
+    "8": {
+      "exposures": 102308,
+      "clicks": 129,
+      "ctr": 0.0012609,
+      "click_share": 0.078563,
+      "exposure_share": 0.100006
+    },
+    "9": {
+      "exposures": 102307,
+      "clicks": 130,
+      "ctr": 0.0012707,
+      "click_share": 0.079172,
+      "exposure_share": 0.100005
+    },
+    "10": {
+      "exposures": 102242,
+      "clicks": 129,
+      "ctr": 0.0012617,
+      "click_share": 0.078563,
+      "exposure_share": 0.099941
+    }
+  },
+  "quality_checks": {
+    "rows_skipped": 0,
+    "all_sampled_algorithm_class_values_missing": true,
+    "slates_with_multiple_logged_clicks": 58
+  },
+  "dataset": "RARD: The Related-Article Recommendation Dataset, recommendation_log_0.csv",
+  "dataset_doi": "10.7910/DVN/HA8EAH",
+  "license": "Creative Commons Attribution 3.0 Unported (CC BY 3.0)",
+  "attribution": "Beel, Carevic, Schaible, and Neusch (2017), RARD: The Related-Article Recommendation Dataset, Harvard Dataverse, doi:10.7910/DVN/HA8EAH.",
+  "method": {
+    "sample": "Three non-overlapping 40 MiB byte-range windows at offsets 0, 400 MiB, and 800 MiB from recommendation_log_0.csv.",
+    "evaluation": "Descriptive exposure and click-through audit by logged rank; not a causal policy comparison or randomized A/B result.",
+    "raw_data_retained": false,
+    "rows_skipped": 0,
+    "algorithm_class_note": "Algorithm-class values are missing in the sampled rows, so algorithm-arm comparisons are not reported.",
+    "sample_windows_mib": [
+      0,
+      400,
+      800
+    ],
+    "window_size_mib": 40
+  }
+}

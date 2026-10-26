@@ -1,0 +1,43 @@
+{
+  "status": "planning scenario only; no randomized experiment was run",
+  "design": {
+    "question": "Does moving a recommendation into rank 1 change its click probability, holding the candidate item constant?",
+    "eligible_population": "Recommendation slates with a stable candidate set and no policy or safety exclusions.",
+    "randomization_unit": "User, to keep assignment stable across repeated slates and reduce cross-arm contamination.",
+    "control": "Original ranking.",
+    "treatment": "Swap rank 1 with one uniformly selected item from ranks 2\u201310; keep the candidate set unchanged.",
+    "primary_metric": "Click-through rate of the preselected moved item within a prespecified attribution window.",
+    "guardrails": [
+      "Slate-level useful engagement (for example, article opens followed by meaningful read depth).",
+      "Hide/report or quick-return rate, where available.",
+      "Exposure concentration and category/creator/format coverage, where those labels exist."
+    ],
+    "analysis": "Intention-to-treat comparison with user-clustered uncertainty; report absolute and relative effects with confidence intervals."
+  },
+  "power_scenarios": {
+    "alpha_two_sided": 0.05,
+    "power": 0.8,
+    "baseline_anchor": "Observed ranks 2\u201310 CTR from the bounded observational sample; used only to illustrate planning scale.",
+    "warning": "Per-arm counts are independent-impression approximations. Final design must account for user clustering, eligibility, attrition, multiple guardrails, and the actual live baseline.",
+    "scenarios": [
+      {
+        "relative_mde": 0.05,
+        "assumed_control_ctr": 0.0013805,
+        "assumed_treatment_ctr": 0.0014495250000000001,
+        "approx_independent_impressions_per_arm": 4655540
+      },
+      {
+        "relative_mde": 0.1,
+        "assumed_control_ctr": 0.0013805,
+        "assumed_treatment_ctr": 0.00151855,
+        "approx_independent_impressions_per_arm": 1192231
+      },
+      {
+        "relative_mde": 0.2,
+        "assumed_control_ctr": 0.0013805,
+        "assumed_treatment_ctr": 0.0016566,
+        "approx_independent_impressions_per_arm": 312229
+      }
+    ]
+  }
+}
