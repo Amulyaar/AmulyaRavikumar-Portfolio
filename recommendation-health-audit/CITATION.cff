@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this portfolio project, cite it as below. Cite RARD separately for the source data."
+title: "Recommendation Health Audit"
+authors:
+  - family-names: Ravikumar
+    given-names: Amulya
+type: software
+abstract: >-
+  A reproducible descriptive audit of recommendation position and clicks in a
+  bounded sample of RARD scholarly-article recommendation logs, with a proposed
+  randomized rank-swap experiment and planning-only sample-size scenarios.
+keywords:
+  - product analytics
+  - recommender systems
+  - experimentation
+  - position bias
