@@ -1,0 +1,43 @@
+import { chromium } from 'playwright';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+
+const url=process.env.LAUNCHREADY_URL || 'http://localhost:8765/';
+const out=process.env.LAUNCHREADY_SCREENSHOTS || './test-output';
+await fs.mkdir(out,{recursive:true});
+const browser=await chromium.launch({headless:true,...(process.env.CHROME_PATH ? {executablePath:process.env.CHROME_PATH} : {})});
+try{
+ const page=await browser.newPage({viewport:{width:1440,height:900},deviceScaleFactor:1});
+ const errors=[];page.on('pageerror',e=>errors.push(e.stack));
+ await page.goto(url,{waitUntil:'networkidle'});
+ await page.getByRole('button',{name:'Enter demo workspace'}).click();
+ await page.getByRole('heading',{name:'A clearer path from feedback to launch'}).waitFor();
+ await page.screenshot({path:path.join(out,'overview-desktop.png'),fullPage:true});
+ await page.locator('[data-view="feedback"]').click();
+ await page.getByRole('button',{name:'Add feedback'}).click();
+ await page.getByLabel('What happened?').fill('A new player missed the start arrow');
+ await page.getByLabel('What did the tester say or do?').fill('They turned away from the first platform.');
+ await page.getByRole('button',{name:'Save feedback'}).click();
+ await page.getByText('A new player missed the start arrow').waitFor();
+ await page.getByRole('searchbox',{name:'Search feedback'}).fill('start arrow');
+ const cards=await page.locator('.feedback-card:visible').count();if(cards!==1)throw new Error(`Expected 1 filtered card, got ${cards}`);
+ await page.getByRole('searchbox',{name:'Search feedback'}).fill('');
+ await page.screenshot({path:path.join(out,'feedback-desktop.png'),fullPage:true});
+ await page.locator('[data-view="readiness"]').click();
+ const before=await page.locator('.readiness-score strong').textContent();
+ await page.getByLabel('Critical feedback is triaged').check();
+ const after=await page.locator('.readiness-score strong').textContent();if(before===after)throw new Error('Readiness did not update');
+ await page.locator('[data-view="priorities"]').click();
+ await page.locator('[data-priority="wayfinding"][data-field="effort"]').fill('4');
+ await page.locator('[data-priority="wayfinding"][data-field="effort"]').dispatchEvent('change');
+ await page.locator('[data-view="overview"]').click();
+ await page.reload();await page.getByRole('heading',{name:'A clearer path from feedback to launch'}).waitFor();
+ await page.locator('[data-view="feedback"]').click();await page.getByText('A new player missed the start arrow').waitFor();
+ await page.goto(new URL('case-study.html',url).href,{waitUntil:'networkidle'});
+ await page.getByRole('heading',{name:'From first playtest to confident launch'}).waitFor();
+ await page.screenshot({path:path.join(out,'case-study-desktop.png'),fullPage:true});
+ if(errors.length)throw new Error('Browser errors: '+errors.join('; '));
+ const mobile=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:1,isMobile:true,hasTouch:true});
+ await mobile.goto(url,{waitUntil:'networkidle'});await mobile.getByRole('button',{name:'Enter demo workspace'}).click();await mobile.screenshot({path:path.join(out,'overview-mobile.png'),fullPage:true});
+ console.log(JSON.stringify({status:'pass',screenshots:out,addedFeedback:true,persistence:true,readiness:true,priority:true,mobile:true}));
+}finally{await browser.close()}

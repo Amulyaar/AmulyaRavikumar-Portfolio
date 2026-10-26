@@ -1,0 +1,12 @@
+{
+  "name": "launchready-pm-case-study",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Independent creator playtest PM concept and static prototype",
+  "scripts": {
+    "test:smoke": "node tests/smoke.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}
