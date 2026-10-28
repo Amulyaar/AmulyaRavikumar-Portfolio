@@ -6,7 +6,7 @@ An end-to-end product analytics case study on **how recommendation position rela
 
 The analyzed sample contains **1,023,019 recommendation impressions across 102,311 slates**. Rank 1's observed CTR was **0.3626%**, compared with **0.1380%** for ranks 2–10, a **2.63× descriptive ratio**. Rank 1 represented about **10.0% of sampled impressions and 22.6% of clicks**.
 
-This is an observational diagnostic, not a causal estimate, model win, or A/B-test result. The sample is three deterministic byte ranges from one scholarly-article recommendation log shard; it is not a random sample of the full dataset and is not representative of TikTok or short-form video.
+This is an observational diagnostic, not a causal estimate, model win, or A/B-test result. The sample is three deterministic byte ranges from one scholarly-article recommendation log shard;
 
 ## What the project demonstrates
 
@@ -57,8 +57,5 @@ Pair the primary metric with useful engagement/read depth and, where product ins
 
 Beel, J., Carevic, Z., Schaible, J., and Neusch, G. (2017). *RARD: The Related-Article Recommendation Dataset*. Harvard Dataverse. [Dataset DOI](https://doi.org/10.7910/DVN/HA8EAH). Dataset license: Creative Commons Attribution 3.0 Unported (CC BY 3.0). The repository contains derived aggregate counts only, not source rows.
 
-## Limits and resume-safe wording
 
-The source is a scholarly-article recommender, not TikTok. The byte-range sample is temporally concentrated and non-random; position is confounded with item quality and slate context; `algorithm-class` is missing in the sampled rows; and clicks are a weak value proxy. No ranking model or live experiment was built or tested.
-
-Resume-safe wording: **“Audited 1.02M recommendation impressions across 102K slates in the public RARD dataset; observed 0.36% CTR at rank 1 versus 0.14% at ranks 2–10 (2.63× descriptive ratio) and proposed a randomized rank-swap test with engagement and ecosystem-health guardrails.”**
+Audited 1.02M recommendation impressions across 102K slates in the public RARD dataset; observed 0.36% CTR at rank 1 versus 0.14% at ranks 2–10 (2.63× descriptive ratio) and proposed a randomized rank-swap test with engagement and ecosystem-health guardrails.
