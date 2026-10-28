@@ -2,7 +2,7 @@
 
 **A local fintech program delivery command center for a fictional Summer 2027 pilot.** It brings five teams, 500 simulated tasks, dependency analysis, a RAID log, release gates, and traceable status reporting into one React dashboard.
 
-> **Synthetic project data.** Every person, work item, risk, milestone, and event in this repository is fictional. The snapshot date is July 15, 2027. This is a portfolio simulation, not an Intuit system or a production forecast.
+> **Synthetic project data.** Every person, work item, risk, milestone, and event in this repository is fictional. The snapshot date is July 15, 2027. This is a portfolio simulation, not a production forecast.
 
 ## What it does
 
