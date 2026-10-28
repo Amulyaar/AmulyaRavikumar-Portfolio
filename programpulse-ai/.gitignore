@@ -1,0 +1,6 @@
+.venv/
+__pycache__/
+*.py[cod]
+backend/programpulse.db
+frontend/node_modules/
+frontend/dist/

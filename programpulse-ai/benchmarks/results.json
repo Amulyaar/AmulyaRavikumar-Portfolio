@@ -1,0 +1,66 @@
+{
+  "project": "ProgramPulse AI",
+  "scenario": "Synthetic fintech pilot",
+  "measurement": "Local wall-clock execution time; no network calls",
+  "environment": {
+    "python": "3.12.14",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "processor": "arm"
+  },
+  "dataset": {
+    "tasks": 500,
+    "dependencies": 705,
+    "raid_items": 15,
+    "report_citations": 20,
+    "search_rows_returned": 20,
+    "csv_bytes": 59303
+  },
+  "iterations": 30,
+  "results": {
+    "overview": {
+      "iterations": 30,
+      "mean_ms": 3.783,
+      "median_ms": 3.764,
+      "p95_ms": 4.436,
+      "min_ms": 3.438,
+      "max_ms": 4.442
+    },
+    "dependency_analysis": {
+      "iterations": 30,
+      "mean_ms": 1.591,
+      "median_ms": 1.567,
+      "p95_ms": 1.711,
+      "min_ms": 1.489,
+      "max_ms": 2.17
+    },
+    "status_report": {
+      "iterations": 30,
+      "mean_ms": 5.157,
+      "median_ms": 5.135,
+      "p95_ms": 5.531,
+      "min_ms": 5.005,
+      "max_ms": 5.548
+    },
+    "task_search": {
+      "iterations": 30,
+      "mean_ms": 0.16,
+      "median_ms": 0.16,
+      "p95_ms": 0.177,
+      "min_ms": 0.146,
+      "max_ms": 0.177
+    },
+    "csv_export": {
+      "iterations": 30,
+      "mean_ms": 1.413,
+      "median_ms": 1.401,
+      "p95_ms": 1.523,
+      "min_ms": 1.355,
+      "max_ms": 1.724
+    }
+  },
+  "notes": [
+    "Results describe this local machine and Python runtime.",
+    "Benchmarks time the engine functions, not browser rendering or HTTP transport.",
+    "The database is newly seeded from the fixed 2027 synthetic scenario for every run."
+  ]
+}

@@ -1,0 +1,6 @@
+operation,iterations,mean_ms,median_ms,p95_ms,min_ms,max_ms
+overview,30,3.783,3.764,4.436,3.438,4.442
+dependency_analysis,30,1.591,1.567,1.711,1.489,2.17
+status_report,30,5.157,5.135,5.531,5.005,5.548
+task_search,30,0.16,0.16,0.177,0.146,0.177
+csv_export,30,1.413,1.401,1.523,1.355,1.724
