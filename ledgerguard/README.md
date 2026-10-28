@@ -91,7 +91,7 @@ benchmarks/        reproducible runner and measured JSON/CSV outputs
 .github/workflows/ledgerguard-ci.yml  PostgreSQL-backed portfolio CI and coverage gate
 ```
 
-## Resume wording (only after verifying CI)
+## Wording
 
 A defensible draft, with numbers tied to reproducible artifacts:
 
@@ -100,4 +100,3 @@ A defensible draft, with numbers tied to reproducible artifacts:
 - Benchmarked 30 runs over 1,000 synthetic invoices at a 0.472 ms median rule-evaluation time on Python 3.12.14 / macOS 27.0.1 arm64; the measurement excludes API/database/network latency.
 - Measured detection of **24/25 (96%)** seeded high-severity defects, with the intentionally unobservable fraud-hold case documented as a known limitation.
 
-Do not claim actual customer savings, production payment protection, or performance outside the recorded local benchmark.
