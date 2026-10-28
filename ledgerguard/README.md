@@ -44,7 +44,7 @@ The application creates its small snapshot table on startup. For production use,
 pytest --cov=ledgerguard.engine --cov-branch --cov-report=term-missing --cov-fail-under=85
 ```
 
-The test suite is designed to exceed 100 checks and CI blocks a merge if `ledgerguard.engine` falls below 85% branch-aware line coverage. The threshold is an automated quality gate; do not describe it as measured coverage until a successful CI run reports the actual percentage.
+The test suite is designed to exceed 100 checks and CI blocks a merge if `ledgerguard.engine` falls below 85% branch-aware coverage. The latest successful CI run measured the actual coverage below.
 
 ### Local verification captured for this build
 
@@ -52,6 +52,11 @@ The test suite is designed to exceed 100 checks and CI blocks a merge if `ledger
 - Python's standard-library `trace` summary reports 100% executed-line coverage for `ledgerguard.engine` (136 lines in its trace report). This is line execution coverage, not branch-aware `pytest-cov`; the CI threshold above remains the branch-coverage check.
 - Fixed-seed benchmark: 30 evaluations of 1,000 invoices; median engine evaluation 0.472 ms, p95 0.497 ms on Python 3.12.14 / macOS 27.0.1 arm64. This measures in-process rule evaluation only, not API, database, network, or payment-provider latency.
 - Scenario results: 24/25 seeded high-severity defects detected (96.00% recall), 98.50% of all invoices posted and reconciled, API fixture p95 637 ms, and five blocked release gates. The correct result is NO-GO.
+
+### GitHub Actions verification
+
+- [Successful PostgreSQL-backed CI run](https://github.com/Amulyaar/AmulyaRavikumar-Portfolio/actions/runs/40615368961): 136 tests passed.
+- `ledgerguard/engine.py`: 100% statement and branch coverage (77 statements and 30 branch arcs; zero missed), exceeding the 85% quality gate.
 
 ## Reproduce benchmark outputs
 
@@ -91,8 +96,8 @@ benchmarks/        reproducible runner and measured JSON/CSV outputs
 A defensible draft, with numbers tied to reproducible artifacts:
 
 - Built LedgerGuard, a FastAPI financial release-readiness simulator that evaluates 1,000 fixed-seed synthetic invoices across payment, approval, integration, audit, and ledger controls; implemented risk-based go/no-go gates, persistent issue triage, evidence-linked reporting, and CSV exports.
-- Added 136 automated checks (128 passed in the local stdlib run; eight FastAPI integration checks are enabled in CI) and recorded 100% executed-line coverage of the rule engine with Python `trace`; configured PostgreSQL-backed GitHub Actions to require at least 85% branch-aware coverage.
+- Added 136 automated tests and verified all 136 pass in PostgreSQL-backed GitHub Actions, with 100% statement and branch coverage for the validation engine (77 statements, 30 branch arcs); CI enforces an 85% minimum.
 - Benchmarked 30 runs over 1,000 synthetic invoices at a 0.472 ms median rule-evaluation time on Python 3.12.14 / macOS 27.0.1 arm64; the measurement excludes API/database/network latency.
 - Measured detection of **24/25 (96%)** seeded high-severity defects, with the intentionally unobservable fraud-hold case documented as a known limitation.
 
-Replace bracketed values only with successful CI and benchmark output. Do not claim actual customer savings, production payment protection, or performance outside the recorded local run.
+Do not claim actual customer savings, production payment protection, or performance outside the recorded local benchmark.
