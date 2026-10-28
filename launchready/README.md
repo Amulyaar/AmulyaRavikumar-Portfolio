@@ -55,4 +55,3 @@ You can set `CHROME_PATH` to use a local Chrome binary or `LAUNCHREADY_URL` to t
 
 The [full case study](CASE_STUDY.md) separates Roblox documentation and public signals from assumptions, then details user stories, MVP scope, prioritization, opportunity sizing without invented platform numbers, metrics, an experiment design with sample-size caveats, safety/privacy, and a go-to-market plan. Roblox's [analytics](https://create.roblox.com/docs/production/analytics) and [experiment documentation](https://create.roblox.com/docs/production/experiments) informed the proposed measurements. Every example note, count, and funnel value in the prototype is synthetic.
 
-Created for Amulya's Summer 2027 PM internship portfolio. Roblox names and links identify the public platform context only.
