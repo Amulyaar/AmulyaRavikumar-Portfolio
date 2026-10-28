@@ -16,10 +16,10 @@ A runnable release-quality command center for a simulated supplier-payments plat
 
 ## Run locally
 
-Requires Python 3.11 or newer. For the easiest setup, use SQLite (default):
+Requires Python 3.11 or newer. From the portfolio repository root, enter the project folder first (skip this step if you cloned the project folder by itself). SQLite is the default:
 
 ```bash
-cd outputs/ledgerguard
+cd ledgerguard
 python -m venv .venv
 source .venv/bin/activate       # Windows: .venv\\Scripts\\activate
 python -m pip install -e '.[test]'
@@ -83,7 +83,7 @@ ledgerguard/       validation engine, deterministic dataset, API, SQLAlchemy sna
 tests/             unit and rule-matrix regression suite
 web/               responsive dashboard (plain HTML/CSS/JS)
 benchmarks/        reproducible runner and measured JSON/CSV outputs
-.github/workflows/ PostgreSQL-backed CI and coverage gate
+.github/workflows/ledgerguard-ci.yml  PostgreSQL-backed portfolio CI and coverage gate
 ```
 
 ## Resume wording (only after verifying CI)
