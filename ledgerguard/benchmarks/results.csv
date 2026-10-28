@@ -1,0 +1,15 @@
+metric,value
+evaluation_median_ms,0.472
+evaluation_p95_ms,0.497
+evaluation_min_ms,0.457
+evaluation_max_ms,0.604
+report_median_ms,0.006
+report_p95_ms,0.007
+quality_seeded_high_severity,25
+quality_true_positive_high_severity,24
+quality_recall_pct,96.0
+quality_finding_count,139
+quality_reconciliation_pct,98.5
+quality_p95_api_latency_ms,637
+quality_blocked_gates,5
+quality_decision,NO-GO

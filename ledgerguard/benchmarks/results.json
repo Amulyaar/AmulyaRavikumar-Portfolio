@@ -1,0 +1,34 @@
+{
+  "benchmark": "LedgerGuard fixed-seed synthetic invoice release simulation",
+  "environment": {
+    "python": "3.12.14",
+    "platform": "macOS-27.0.1-arm64-arm-64bit",
+    "cpu_count": 10
+  },
+  "dataset": {
+    "invoices": 1000,
+    "iterations": 30,
+    "seed": 2027
+  },
+  "evaluation_ms": {
+    "median": 0.472,
+    "p95": 0.497,
+    "min": 0.457,
+    "max": 0.604
+  },
+  "report_build_ms": {
+    "median": 0.006,
+    "p95": 0.007
+  },
+  "quality": {
+    "seeded_high_severity": 25,
+    "true_positive_high_severity": 24,
+    "recall_pct": 96.0,
+    "finding_count": 139,
+    "reconciliation_pct": 98.5,
+    "p95_api_latency_ms": 637,
+    "blocked_gates": 5,
+    "decision": "NO-GO"
+  },
+  "note": "Wall-clock results vary by machine; generated locally by run_benchmark.py. No API/network latency is included."
+}
