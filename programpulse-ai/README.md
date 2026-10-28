@@ -92,9 +92,7 @@ The project currently uses deterministic, evidence-grounded synthesis rather tha
 
 The schedule forecast adds the longest remaining task-duration chain to the snapshot date. It uses calendar days and does not account for working calendars, resource capacity, uncertainty, or shared-resource contention. Team completion is a snapshot metric, not a validated delivery commitment. The sample uses invented people and deliberately seeded integration failures to make the dashboard demonstrable.
 
-## Portfolio resume bullets
-
-Use these only as claims about this completed portfolio simulation; preserve the synthetic-data context when discussing it:
+## Portfolio :
 
 - Built a React and FastAPI fintech program command center modeling 5 cross-functional teams, 500 work items, and 705 task dependencies; implemented critical-path forecasting, release gates, RAID escalation, and CSV/JSON exports.
 - Created evidence-linked status reporting that ties each claim to task, milestone, RAID, or computed metric records; measured a 5.531 ms p95 report-generation time over 30 local runs on a 500-task SQLite dataset.
