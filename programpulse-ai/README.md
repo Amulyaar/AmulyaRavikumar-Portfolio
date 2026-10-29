@@ -24,10 +24,10 @@ source .venv/bin/activate
 pip install -r backend/requirements.txt
 python backend/simulate.py
 cd backend
-uvicorn main:app --reload
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
 
-The API is at `http://127.0.0.1:8000`; interactive API docs are at `http://127.0.0.1:8000/docs`.
+The API is available on port `8000`. Use the host computer's local IP address to access it from another device, for example `http://192.168.1.25:8000/docs`.
 
 In a second terminal:
 
@@ -37,7 +37,9 @@ npm install
 npm run dev
 ```
 
-Open `http://127.0.0.1:5173`. Vite forwards `/api` requests to the local FastAPI service.
+Open `http://<host-computer-ip>:5173` from any device on the same network. Vite forwards `/api` requests to the local FastAPI service.
+
+The development servers listen on `0.0.0.0`, making them reachable over the local network. You may need to allow ports `5173` and `8000` through the host computer's firewall. This is local-network access only; it does not publish the app to the public internet.
 
 The first seed creates `backend/programpulse.db`; subsequent starts keep the current state. To reset every record to the reproducible baseline, stop the API and run `python backend/simulate.py --force` from the project root.
 
